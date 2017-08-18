@@ -13,7 +13,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-image: url('img/aqi_india.jpg');
+                background-repeat:   no-repeat;
+                background-position: center center;
                 color: #555;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -90,9 +92,10 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+
+                {{-- <div class="title m-b-md">
                     {{ env('APP_NAME') }}
-                </div>
+                </div> --}}
             </div>
         </div>
 
