@@ -14,7 +14,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #555;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -22,7 +22,7 @@
             }
 
             .full-height {
-                height: 100vh;
+                height: 90vh;
             }
 
             .flex-center {
@@ -62,7 +62,20 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .footer {
+              padding: 0 2rem;
+              color: #999;
+              text-align: center;
+              background-color: #f9f9f9;
+              border-top: .1rem solid #e5e5e5;
+            }
+
+            .copyright {
+              float: left;
+            }
         </style>
+        @include('layouts.favicon')
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,15 +93,11 @@
                 <div class="title m-b-md">
                     {{ env('APP_NAME') }}
                 </div>
-
-                {{-- <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> --}}
             </div>
         </div>
+
+        <footer class="footer">
+            <h4 class="h4 copyright">© 2017 Purelogic Labs.</h3>
+        </footer>
     </body>
 </html>
