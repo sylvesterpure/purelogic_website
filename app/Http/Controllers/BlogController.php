@@ -14,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog.index'); 
+        $posts = blog::latest()->get();
+        return view('blog.index', compact('posts')); 
     }
 
     /**
@@ -35,7 +36,30 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate(request(), [
+            'title'     => 'required|max:100',
+            'subtitle'  => 'required|max:100',
+            'body'      => 'required'
+        ]);
+
+        if( $request->hasFile('image_file')){ 
+            $image = $request->file('image_file'); 
+            $fileName = $image->getClientOriginalName();
+            $fileExtension = $image->getClientOriginalExtension();
+            $name = time().'.'.$fileExtension;
+            $request->image_file->move(public_path('images/blog'), $name);
+
+            blog::create([
+                'title'     => request('title'),
+                'subtitle'  => request('subtitle'),
+                'body'      => request('body'),
+                'image_url' => asset('images/blog/'.$name)
+            ]);
+        } else {
+            blog::create(request(['title', 'subtitle', 'body']));
+        }
+        return redirect('blog');
     }
 
     /**
@@ -46,7 +70,8 @@ class BlogController extends Controller
      */
     public function show(blog $blog)
     {
-        //
+        $post = $blog;
+        return view('blog.show', compact('post'));
     }
 
     /**
