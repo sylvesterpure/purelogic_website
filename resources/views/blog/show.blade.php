@@ -32,3 +32,11 @@
     <!-- Custom styles for this template -->
     <link href='{{ asset("css/app.css") }}' rel="stylesheet">
 @endsection
+
+@section('seo')
+        <title>{{ $post->title }} - Air Quality Index</title>
+        <meta name="description" content="{{ $post->subtitle }}">
+        <meta name="keywords" content="blog, air pollution, pollution, air quality, aqi, india, aqi india, pollution control, delhi, north india, ncr, gurgaon, noida, gaziabad, faridabad, enviornment, smog, dust, dust particles">
+        <meta name="author" content="Purelogic Labs">
+        <meta name="robots" content="index/follow">
+@endsection

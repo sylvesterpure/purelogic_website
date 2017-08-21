@@ -5,7 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="{{ asset('favicon.ico') }}">
-        <title>{{ env('APP_NAME') }}</title>
+        <title>Pollution in my location - Air Quality Index</title>
+        <meta name="description" content="Check the pollution in my location for checking the air quality your location before getting out of your home. AQI India helps you to track the air quality of your location or any location">
+        <meta name="keywords" content="air pollution, pollution, air quality, aqi, india, aqi india, pollution control, delhi, north india, ncr, gurgaon, noida, gaziabad, faridabad, enviornment, smog, dust, dust particles">
+        <meta name="author" content="Purelogic Labs">
+        <meta name="robots" content="index/follow">
+
+        <meta charset="utf-8" >
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
