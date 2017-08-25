@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/', function () {
-	return 1;
+	return env('DATA_TEST');
 });
 
 Auth::routes();
