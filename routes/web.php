@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/', function () {
+	return 1;
+});
+
 Auth::routes();
 
 Route::get('/logout', function() {
