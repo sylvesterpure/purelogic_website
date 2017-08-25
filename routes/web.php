@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/', function () {
+	return env('DATA_TEST');
+});
+
 Auth::routes();
 
 Route::get('/logout', function() {
