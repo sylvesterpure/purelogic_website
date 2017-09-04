@@ -36,12 +36,13 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate(request(), [
             'title'     => 'required|max:100',
             'subtitle'  => 'required|max:100',
             'body'      => 'required'
         ]);
+
+        $strSlug = str_slug(request('title'));
 
         if( $request->hasFile('image_file')){ 
             $image = $request->file('image_file'); 
@@ -50,16 +51,30 @@ class BlogController extends Controller
             $name = time().'.'.$fileExtension;
             $request->image_file->move(public_path('images/blog'), $name);
 
-            blog::create([
-                'title'     => request('title'),
-                'subtitle'  => request('subtitle'),
-                'body'      => request('body'),
-                'image_url' => asset('images/blog/'.$name)
-            ]);
+            $Blog = new blog;
+            $Blog->title = request('title');
+            $Blog->subtitle = request('subtitle');
+            $Blog->body = request('body');
+            $Blog->image_url = asset('images/blog/'.$name);
+            $Blog->seo_url = $strSlug;
+
+            $Blog->save();
         } else {
-            blog::create(request(['title', 'subtitle', 'body']));
+            $Blog = new blog;
+            $Blog->title = request('title');
+            $Blog->subtitle = request('subtitle');
+            $Blog->body = request('body');
+            $Blog->seo_url = $strSlug;
+
+            $Blog->save();
         }
         return redirect('blog');
+    }
+
+    public function specificPost($blog)
+    {
+        $post = blog::whereSeo_url($blog)->first();
+        return view('blog.show', compact('post'));
     }
 
     /**

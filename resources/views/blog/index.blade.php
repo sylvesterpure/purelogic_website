@@ -6,7 +6,7 @@
 
         @if (count($posts))
             @foreach ($posts as $post)
-                @include('blog.post')
+                @include('blog.posts')
             @endforeach
 
             {{-- <nav class="blog-pagination">
