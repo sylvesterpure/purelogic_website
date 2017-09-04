@@ -28,4 +28,9 @@ Route::get('/logout', function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('blog', 'BlogController');
+// Route::get('/blog/post/{blog}', 'BlogController@specificPost');
+
+// Route::resource('blog', 'BlogController');
+Route::get('/blog', function() {
+	return view('layouts.redirect_to_blog');
+});
